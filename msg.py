@@ -45,5 +45,6 @@ with open('names.txt', 'r') as file:
             actions.send_keys(Keys.ENTER)
             actions.perform()
             time.sleep(5)
+            print(num)
         except Exception as e:
             print(e)
