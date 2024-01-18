@@ -12,7 +12,7 @@ driver = webdriver.Chrome(options=options)
 driver.get('https://web.whatsapp.com/')
 input("Press ENTER...")
 
-image_path = "C:/RAGUL PR.pdf"
+image_path =  #Paste the document path
 
 with open('msg.txt', 'r') as file:
     msg = file.read()
