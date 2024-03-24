@@ -31,20 +31,25 @@ with open('names.txt', 'r') as file:
             actions3 = ActionChains(driver)
             actions3.send_keys(n)
             actions3.perform()
-            actions1 = ActionChains(driver)
-            actions1.send_keys(Keys.ENTER)
-            actions1.perform()
+            input('Enter...')
             actions = ActionChains(driver)
+            time.sleep(1)
             button1 = driver.find_element(
-                By.XPATH, '/html/body/div[1]/div/div[2]/div[4]/div/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p')
+                By.XPATH, '/html/body/div[1]/div/div[2]/div[3]/div/div[2]/div[1]/div/div/div[1]/div/div/div/div[2]')
             button1.click()
-            for line in msg.split('\n'):
-                actions.send_keys(line)
-                actions.key_down(Keys.SHIFT).send_keys(
-                    Keys.ENTER).key_up(Keys.SHIFT)
-            actions.send_keys(Keys.ENTER)
-            actions.perform()
-            time.sleep(5)
+            name_bar = driver.find_element(
+                By.XPATH, '/html/body/div[1]/div/div[2]/div[4]/div/header/div[2]/div/div/div/span')
+            name = name_bar.text
+            if name==num:
+                for line in msg.split('\n'):
+                    actions.send_keys(line)
+                    actions.key_down(Keys.SHIFT).send_keys(
+                        Keys.ENTER).key_up(Keys.SHIFT)
+                actions.send_keys(Keys.ENTER)
+                actions.perform()
+            time.sleep(3)
             print(num)
+            print(name)
+            print(name==num)
         except Exception as e:
             print(e)
